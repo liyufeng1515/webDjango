@@ -1,45 +1,23 @@
-<!DOCTYPE html>
-<html lang="en-us" >
-<head>
-<title>Log in | Django site admin</title>
-<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
-<link rel="stylesheet" type="text/css" href="/static/admin/css/login.css" />
-<meta name="robots" content="NONE,NOARCHIVE" />
-</head>
-<body class=" login" data-admin-utc-offset="0">
-<!-- Container -->
-<div id="container">
-    <!-- Header -->
-    <div id="header">
-        <div id="branding">
-            <h1 id="site-name"><a href="/admin/">Django administration</a></h1>
+{% extends 'base.html' %}
+{% block body %}<body class="body-signin">{% endblock %}
+{% block content %}
+    <div class="container">
+      <form class="form-signin">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <div class="form-group">
+            <label for="inputUsername" class="sr-only">Username</label>
+            <input type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
         </div>
-    </div>
-    <!-- END Header -->
-    <!-- Content -->
-    <div id="content" class="colM">
-        <div id="content-main">
-            <form action="/admin/login/?next=/admin/" method="post" id="login-form"><input type='hidden' name='csrfmiddlewaretoken' value='SYHnIsYTl4CYDIeOfXn8XHLXFp7I3R4MzRu9xCKNFgdBeznKBahNNOzewhxAvauH' />
-                <div class="form-row">
-                    <label class="required" for="id_username">Username:</label>
-                    <input autofocus="" id="id_username" maxlength="254" name="username" type="text" required />
-                </div>
-                <div class="form-row">
-                    <label class="required" for="id_password">Password:</label>
-                    <input id="id_password" name="password" type="password" required />
-                    <input type="hidden" name="next" value="/admin/" />
-                </div>
-                <div class="submit-row">
-                    <label>&nbsp;</label>
-                    <input type="submit" value="Log in" />
-                </div>
-            </form>
+        <div class="form-group">
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
         </div>
-        <br class="clear" />
-    </div>
-    <!-- END Content -->
-    <div id="footer"></div>
-</div>
-<!-- END Container -->
-</body>
-</html>
+        <div class="form-group checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
+  </div>
+{% endblock %}  
